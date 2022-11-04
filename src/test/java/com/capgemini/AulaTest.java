@@ -1,18 +1,20 @@
 package com.capgemini;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Tag("unit")
 public class AulaTest {
-    Aula aula;
+
+    Aula aula = new Aula();
     @BeforeEach
     public void setUp(){
         aula = new Aula();
     }
 
     @Test
+    @DisplayName("Todo tiene que estar vacío")
     public void testConstructorSinParametros(){
         assertEquals("",aula.getDimensiones());
         assertEquals(false,aula.getAireAcondicionado());
@@ -20,6 +22,7 @@ public class AulaTest {
     }
 
     @Test
+    @DisplayName("dimensiones:10x10, aireAcondicionado:true, profesorAsignado:Antonio")
     public void testConstructorConParametros(){
         Aula aula = new Aula("10x10",true,"Antonio");
         assertEquals("10x10",aula.getDimensiones());
@@ -28,6 +31,7 @@ public class AulaTest {
     }
 
     @Test
+    @DisplayName("Testeando los getter y setter")
     public void testGetterYSetter(){
         aula.setDimensiones("10x10");
         aula.setAireAcondicionado(true);
