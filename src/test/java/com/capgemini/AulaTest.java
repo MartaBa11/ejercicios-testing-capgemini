@@ -1,6 +1,9 @@
 package com.capgemini;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,13 +24,16 @@ public class AulaTest {
         assertEquals("",aula.getProfesorAsignado());
     }
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({ "10X10, true, Antonio",
+            "20x20, false, Jesus",
+            "30x25, true, Maricarmen"})
     @DisplayName("dimensiones:10x10, aireAcondicionado:true, profesorAsignado:Antonio")
-    public void testConstructorConParametros(){
-        Aula aula = new Aula("10x10",true,"Antonio");
-        assertEquals("10x10",aula.getDimensiones());
-        assertEquals(true,aula.getAireAcondicionado());
-        assertEquals("Antonio",aula.getProfesorAsignado());
+    public void testConstructorConParametros(String dim, Boolean aire, String nombre){
+        Aula aula = new Aula(dim,aire,nombre);
+        assertEquals(dim,aula.getDimensiones());
+        assertEquals(aire,aula.getAireAcondicionado());
+        assertEquals(nombre,aula.getProfesorAsignado());
     }
 
     @Test

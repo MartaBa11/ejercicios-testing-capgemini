@@ -4,6 +4,8 @@ package com.capgemini;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,10 +25,11 @@ public class PerroTest {
         assertEquals("",p.raza);
     }
 
-    @Test
-    public void testConstructorConParametros(){
-        Perro p = new Perro("Terrier");
-        assertEquals("Terrier",p.raza);
+    @ParameterizedTest
+    @ValueSource(strings = {"Terrier","Pastor Aleman", "Bulldog", "Papaya"})
+    public void testConstructorConParametros(String raza){
+        Perro p = new Perro(raza);
+        assertEquals(raza,p.raza,() -> "La raza " + raza + " es la correcta");
     }
 
     @Test

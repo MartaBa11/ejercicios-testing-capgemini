@@ -1,15 +1,19 @@
 package com.capgemini;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculadoraTest {
 
-    @Test
-    public void testSuma(){
-        Float Resultado = Calculadora.suma(4F, 2F);
-        assertEquals(6F,Resultado);
+    //@Test
+    @ParameterizedTest(name = "{0} + {1} = {2}")
+    @CsvFileSource(resources = "/calculadora.csv", numLinesToSkip = 1)
+    public void testSuma(Float a, Float b, Float c){
+        Float resultado = Calculadora.suma(a, b);
+        assertEquals(c,resultado);
     }
 
     @Test
