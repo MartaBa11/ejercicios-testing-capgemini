@@ -1,12 +1,14 @@
 package com.capgemini;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Tag("unit")
 public class SalaTest {
-    Sala sala;
+    Sala sala = new Sala();
 
     @BeforeEach
     public void setUp(){

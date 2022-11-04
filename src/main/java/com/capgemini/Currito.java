@@ -10,7 +10,7 @@ public class Currito extends Empleado{
 
     public Currito() {
         super();
-        this.puestoTrabajo = puestoTrabajo;
+        this.puestoTrabajo = "";
     }
 
     public String getPuestoTrabajo() {
