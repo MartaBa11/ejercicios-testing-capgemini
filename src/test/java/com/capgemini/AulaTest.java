@@ -28,7 +28,7 @@ public class AulaTest {
     @CsvSource({ "10X10, true, Antonio",
             "20x20, false, Jesus",
             "30x25, true, Maricarmen"})
-    @DisplayName("dimensiones:10x10, aireAcondicionado:true, profesorAsignado:Antonio")
+    @DisplayName("Prueba si el constructo con parámetros funciona bien")
     public void testConstructorConParametros(String dim, Boolean aire, String nombre){
         Aula aula = new Aula(dim,aire,nombre);
         assertEquals(dim,aula.getDimensiones());
@@ -36,15 +36,18 @@ public class AulaTest {
         assertEquals(nombre,aula.getProfesorAsignado());
     }
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({ "10X10, true, Antonio",
+            "20x20, false, Jesus",
+            "30x25, true, Maricarmen"})
     @DisplayName("Testeando los getter y setter")
-    public void testGetterYSetter(){
-        aula.setDimensiones("10x10");
-        aula.setAireAcondicionado(true);
-        aula.setProfesorAsignado("Antonio");
-        assertEquals("10x10",aula.getDimensiones());
-        assertEquals(true, aula.getAireAcondicionado());
-        assertEquals("Antonio", aula.getProfesorAsignado());
+    public void testGetterYSetter(String dim, Boolean aire, String nombre){
+        aula.setDimensiones(dim);
+        aula.setAireAcondicionado(aire);
+        aula.setProfesorAsignado(nombre);
+        assertEquals(dim,aula.getDimensiones());
+        assertEquals(aire, aula.getAireAcondicionado());
+        assertEquals(nombre, aula.getProfesorAsignado());
     }
 
 }
