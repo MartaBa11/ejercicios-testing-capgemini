@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -155,6 +156,49 @@ public class APITest {
 
         System.out.println("param2: "+ param2);
         assertEquals("23", param2);
+
+    }
+
+    @Test
+    public void testPostRequest() throws IOException, InterruptedException, URISyntaxException, ParseException {
+        // Given
+        //Primero creamos el cliente
+        HttpClient client = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_2)
+                .build();
+
+
+        //Creamos el objeto JSON que queremos "postear"
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name","Marta");
+        jsonObject.put("age",23);
+
+        //Tenemos que hacer una petición pero esta vez es diferente porque es POST
+        HttpRequest request = HttpRequest
+                .newBuilder(new URI("https://httpbin.org/post"))
+                .version(HttpClient.Version.HTTP_2)
+                .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toJSONString())) //añadimos lo que queremos postear
+                .build();
+
+        // When
+        //Ahora retomamos lo que nos devuelve el servicio al hacer la petición
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        int responseStatusCode = response.statusCode();
+        String reponseBody = response.body();
+        System.out.println("httpGetRequest: " + reponseBody);
+
+        //Then -> se hacen todas las comprobaciones
+        assertEquals(responseStatusCode,200);
+
+        //De nuevo hay que parsear el body para poder extraer los campos
+        JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObject1 = (JSONObject) jsonParser.parse(reponseBody);
+
+        JSONObject json = (JSONObject) jsonObject1.get("json");
+
+        //Ponerlo directamente porque no se el tipo de dato que me puede dar
+        assertEquals("Marta",json.get("name"));
+        assertEquals(23L,json.get("age"));
 
     }
 }
