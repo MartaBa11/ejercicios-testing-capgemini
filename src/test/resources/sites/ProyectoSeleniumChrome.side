@@ -1,0 +1,117 @@
+{
+  "id": "a03a52b7-452c-4ca2-bdf9-6cf5bea86b91",
+  "version": "2.0",
+  "name": "ProyectoSeleniumChrome",
+  "url": "https://es.wikipedia.org",
+  "tests": [{
+    "id": "457c5bf8-df08-4e02-b7e1-f44ed0d7e864",
+    "name": "PrimerTest",
+    "commands": [{
+      "id": "9623a91f-9952-46e9-9b3f-558806cbde77",
+      "comment": "",
+      "command": "open",
+      "target": "/wiki/Wikipedia:Portada",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1eca9b2f-06f9-40e9-932a-e7d5c53f3641",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "666x681",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "188ecce8-c88b-42ca-a8c4-aba3d5b2cb91",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b41b78e5-1650-4449-a512-bea2237469cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d8db432-3afe-4e6d-bd42-513258b87aa1",
+      "comment": "",
+      "command": "type",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Patata"
+    }, {
+      "id": "fef62f9a-0f1b-43e1-910b-de698cdd34fc",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchButton",
+      "targets": [
+        ["id=searchButton", "id"],
+        ["name=go", "name"],
+        ["css=#searchButton", "css:finder"],
+        ["xpath=//input[@id='searchButton']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee911362-1712-4924-a30f-f4a208a55ced",
+      "comment": "",
+      "command": "click",
+      "target": "id=firstHeading",
+      "targets": [
+        ["id=firstHeading", "id"],
+        ["css=#firstHeading", "css:finder"],
+        ["xpath=//h1[@id='firstHeading']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Solanum tuberosum')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "27cd8da2-d4c1-4436-a5e6-e18cc1141805",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.mw-page-title-main",
+      "targets": [
+        ["css=.mw-page-title-main", "css:finder"],
+        ["xpath=//h1[@id='firstHeading']/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Solanum tuberosum')]", "xpath:innerText"]
+      ],
+      "value": "Solanum tuberosum"
+    }]
+  }],
+  "suites": [{
+    "id": "66036b4f-2dae-4176-80ea-91a4d2cac38e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["457c5bf8-df08-4e02-b7e1-f44ed0d7e864"]
+  }],
+  "urls": ["https://es.wikipedia.org/"],
+  "plugins": []
+}

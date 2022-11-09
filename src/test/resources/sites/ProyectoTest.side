@@ -1,0 +1,117 @@
+{
+  "id": "cd4d9a80-e1db-4c39-bed5-3029582eba07",
+  "version": "2.0",
+  "name": "ProyectoTest",
+  "url": "https://es.wikipedia.org",
+  "tests": [{
+    "id": "a49197cd-7195-4523-a444-7cf1ca92a4a8",
+    "name": "TestWiki",
+    "commands": [{
+      "id": "0f568692-33cf-47a4-ac6a-46c9b30cd54a",
+      "comment": "",
+      "command": "open",
+      "target": "/wiki/Wikipedia:Portada",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "844e60e7-3be8-430d-ac03-4164480a24d2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a4f2f39-f1b0-4243-990d-f37836019497",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6181fc73-e236-4954-a6f7-ae793c02a71e",
+      "comment": "",
+      "command": "type",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Malaga"
+    }, {
+      "id": "d0a1c9a2-f08d-4c06-b2a0-629bb46d5067",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "386dc4db-d80f-4647-9dd2-233dc07d267e",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchButton",
+      "targets": [
+        ["id=searchButton", "id"],
+        ["name=go", "name"],
+        ["css=#searchButton", "css:finder"],
+        ["xpath=//input[@id='searchButton']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1be6487d-4f4a-4fc8-bf34-b62712e49189",
+      "comment": "",
+      "command": "click",
+      "target": "id=firstHeading",
+      "targets": [
+        ["id=firstHeading", "id"],
+        ["css=#firstHeading", "css:finder"],
+        ["xpath=//h1[@id='firstHeading']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Málaga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6d17690-c1f6-4cdd-a3ba-58e5ca6aa01e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.mw-page-title-main",
+      "targets": [
+        ["css=.mw-page-title-main", "css:finder"],
+        ["xpath=//h1[@id='firstHeading']/span", "xpath:idRelative"],
+        ["xpath=//h1/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Málaga')]", "xpath:innerText"]
+      ],
+      "value": "Málaga"
+    }]
+  }],
+  "suites": [{
+    "id": "94ef3e48-4f1e-404f-8ca0-1b1372b5ec9b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a49197cd-7195-4523-a444-7cf1ca92a4a8"]
+  }],
+  "urls": ["https://es.wikipedia.org/"],
+  "plugins": []
+}

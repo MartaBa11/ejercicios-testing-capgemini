@@ -40,7 +40,9 @@ public class App
         Float ResultadoMulti = Calculadora.multi((float) 3.3, 4F);
         System.out.println(ResultadoMulti);
 
-
+        //PRUEBA APLICACION
+        Aplicacion a = new Aplicacion();
+        a.main();
 
 
     }
